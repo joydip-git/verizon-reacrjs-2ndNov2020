@@ -15,6 +15,10 @@ c. modules
    3. module loader:
 	Require JS, System.register()
 
+JavaScript Framework and Libraries:
+a. Framework: Angular
+b. Library: React, Vue
+
 React JS
 a. Introduction
 b. create react application
