@@ -52,3 +52,10 @@ const invoke = (fnRef, ...args) => {
 
 invoke(add, 10, 20, 30);
 invoke(multiply, 10, 20)
+
+
+const numbers1 = [1, 2, 3, 4];
+const numbers2 = [10, 20, 30, 40];
+const finalNumbers = [...numbers1, 100, 200, 300, ...numbers2]
+//const finalNumbers = new Array(...numbers1, 100,200,300 ...numbers2)
+console.log(finalNumbers)

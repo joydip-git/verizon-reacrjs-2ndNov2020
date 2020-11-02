@@ -8,6 +8,12 @@ Extensions for VS Code:
 JavaScript
 a. Prototype based programming
 b. new features in JS
+c. modules
+   1. module	
+   2. module format:
+	IIFE : Immediately Invocable Function Expression (IIFY), Common JS, AMD (Asynchronous Module Definition), UMD (Universal Module Definition), ES6 modules etc.
+   3. module loader:
+	Require JS, System.register()
 
 React JS
 a. Introduction
@@ -17,3 +23,8 @@ b. create react application
 c. react concepts
 d. case study
 e. deployment
+
+
+Node JS:
+ server side framework
+ Node runtime is built at the top of v8 engine
