@@ -1,3 +1,10 @@
+Extensions for VS Code:
+1. HTML Boilerplate
+2. vscode-icons
+3. ES7 React/Redux/React-Native/JS snippets
+4. Babel-ES6/ES7
+5. Webpack
+
 JavaScript
 a. Prototype based programming
 b. new features in JS
