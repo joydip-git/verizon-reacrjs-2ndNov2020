@@ -1,5 +1,7 @@
 //app component
-const app = () => {
+import { welcome } from './welcome'
+import { description } from './description'
+export const app = () => {
     const welcomeElement = welcome();
     const desciptionElement = description();
 
