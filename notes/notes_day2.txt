@@ -45,7 +45,7 @@ npm i webpack-dev-server --save-dev
 React JS:
 Library
 Develop web-based (client-side web application) app quickly
-USP:??
+USP: Virtual DOM, vast community
 philosophy:
 component based application
 Component: function
@@ -57,4 +57,14 @@ return design/anything
 Angular: framework
 MV-*
 component, directive, pipe, service, DI, router, httpclient
+
+React Element:
+type:'<html-element-name>'
+key:,
+ref:,
+props:{
+  children:[which ever are/is netsed i between the open and close tag of the element]
+}
+
+object--->DOM HTML element
 

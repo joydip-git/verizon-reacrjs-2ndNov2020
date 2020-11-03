@@ -11,14 +11,6 @@ export const Welcome = () => {
     const changeMessage = () => {
         message = 'Welcome to React JS World'
     }
-
-    // const welcomeElement = React.createElement(
-    //     'span',
-    //     { id: 'messageSpan', style: spanStyle },
-    //     message
-    // );
-
-    //JSX (JavaScript XML)
     const welcomeElement = (
         <div>
             <span id='spanMessage' style={spanStyle}>

@@ -8,7 +8,7 @@ define(["exports"], function (_exports) {
 
   //welcome component
   var welcome = function welcome() {
-    var message = 'Welcome to the world of React JS ';
+    var message = 'Welcome to React';
     var spanElement = document.createElement('span'); // const spanStyle = {
     //     backgroundColor: 'lime',
     //     textAlign: 'center',

@@ -5,6 +5,7 @@ import React from 'react'
 const App = () => {
 
     const welcomeElement = Welcome();
+    // const welcomeElement = <Welcome />
     const desciptionElement = Description();
     /*
         const appElement = React.createElement(
@@ -21,9 +22,11 @@ const App = () => {
     const appElement = (
         <div>
             {welcomeElement}
+            {/* <Welcome /> */}
             <br />
             <br />
             {desciptionElement}
+            {/* <Description /> */}
         </div>
     )
     return appElement;
