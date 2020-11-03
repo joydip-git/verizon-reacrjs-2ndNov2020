@@ -82,3 +82,13 @@ C:\Program Files\nodejs
 
 any additional node packages that you install
 C:\Users\<user-name>\AppData\Roaming\npm
+
+Prop types:
+npm i prop-types --save-dev
+
+
+JS: dynamic language
+
+TypeScript: tsc
+
+Flow: facebook
