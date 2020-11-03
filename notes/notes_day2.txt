@@ -68,3 +68,12 @@ props:{
 
 object--->DOM HTML element
 
+Tool to create a react application with boilerplate code and folder structure: create-react-app
+
+A.
+npm i create-react-app -g
+create-react-app react-props-state-demo
+
+B.
+>npx create-react-app react-props-state-demo
+
