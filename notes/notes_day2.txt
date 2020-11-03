@@ -1,6 +1,3 @@
-convert ES6 code back to ES5 or much older version
-convert ES6 module styles to AMD
-
 JavaScript transplier & compiler:
 Babel, TSC
 
@@ -11,9 +8,11 @@ Babel command for transpilation
 .\node_modules\.bin\babel src --out-dir build
 
 Babel Preset (collection of plugins) for ES6 syntax transformation to ES5
+a. convert ES6 code back to ES5 or much older version
 npm install --save-dev @babel/preset-env
 
 Babel plugin to transform ES6 module into AMD
+b. convert ES6 module styles to AMD
 npm i @babel/plugin-transform-modules-amd --save-dev
 
 
@@ -22,3 +21,40 @@ npm i concurrently --save-dev
 
 React Core packages:
 npm i react react-dom --save
+
+React related Babel packages
+c. convert React JSX code into JS code
+preset: @babel/preset-react
+npm i @babel/preset-react --save-dev
+
+bundler package: webpack
+npm i webpack webapck-cli --save-dev
+
+loaders for webpack:
+JS: babel-loader
+CSS: css-loader, style-loader
+HTML: html-loader
+npm i babel-loader css-loader style-loader html-loader --save-dev
+
+plugins for webpack
+npm i html-webpack-plugin clean-webpack-plugin --save-dev
+
+development server:
+npm i webpack-dev-server --save-dev
+
+React JS:
+Library
+Develop web-based (client-side web application) app quickly
+USP:??
+philosophy:
+component based application
+Component: function
+a. data
+b. design (element/anything)
+c. logic to manipulate the data
+return design/anything
+
+Angular: framework
+MV-*
+component, directive, pipe, service, DI, router, httpclient
+
