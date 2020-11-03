@@ -1,5 +1,5 @@
 //welcome component
-const welcome = () => {
+export const welcome = () => {
     const message = 'Welcome to React'
     const spanElement = document.createElement('span');
     // const spanStyle = {

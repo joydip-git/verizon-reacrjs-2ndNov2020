@@ -1,0 +1,33 @@
+{
+  "name": "react-first-app",
+  "version": "1.0.0",
+  "description": "simple js/react app",
+  "main": "./src/index.js",
+  "scripts": {
+    "compile": "babel src --out-dir build",
+    "server":"lite-server --baseDir=build",
+    "concurrently":"concurrently",
+    "start":"concurrently \"npm run compile\"  \"npm run server\"  "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joydip-git/verizon-reacrjs-2ndNov2020.git"
+  },
+  "keywords": [
+    "reactjs"
+  ],
+  "author": "joydip",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joydip-git/verizon-reacrjs-2ndNov2020/issues"
+  },
+  "homepage": "https://github.com/joydip-git/verizon-reacrjs-2ndNov2020#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-transform-modules-amd": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "concurrently": "^5.3.0",
+    "lite-server": "^2.5.4"
+  }
+}

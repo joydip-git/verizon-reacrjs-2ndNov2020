@@ -1,3 +1,5 @@
+import { welcome } from './welcome'
+import { description } from './description'
 //app component
 const app = () => {
     const welcomeElement = welcome();
@@ -11,3 +13,5 @@ const app = () => {
 
     return appElement;
 }
+
+export default app;

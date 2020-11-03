@@ -1,0 +1,23 @@
+webpack, browserify
+
+convert ES6 code back to ES5 or much older version
+convert ES6 module styles to AMD
+
+JavaScript transplier & compiler:
+Babel, TSC
+
+Babel Core and CLI package:
+npm i @babel/core @babel/cli --save-dev
+
+Babel command for transpilation
+.\node_modules\.bin\babel src --out-dir build
+
+Babel Preset (collection of plugins) for ES6 syntax transformation to ES5
+npm install --save-dev @babel/preset-env
+
+Babel plugin to transform ES6 module into AMD
+npm i @babel/plugin-transform-modules-amd --save-dev
+
+
+npm i lite-server --save-dev
+npm i concurrently --save-dev
