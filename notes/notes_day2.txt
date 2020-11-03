@@ -92,3 +92,26 @@ JS: dynamic language
 TypeScript: tsc
 
 Flow: facebook
+
+diffing algorithm
+
+React Components:
+a. functional component/presentational component/stateless component: just for displaying design...
+b. class component/stateful component (function constructor): to maintain state
+
+How to pass data from parent to nested component?
+using properties/attributes of the component
+
+How to pass data from nested to parent component?
+
+
+App component must have a state data
+property name: people
+type/value: [{name:, id:, age:}, {name:, id:, age:}, {name:, id:, age:}]
+
+this.state={
+	people:[{name:, id:, age:}, {name:, id:, age:}, {name:, id:, age:}]
+}
+
+create another component: person
+pass one object from people array in App state to Person component
