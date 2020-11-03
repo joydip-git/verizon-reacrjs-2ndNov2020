@@ -77,3 +77,8 @@ create-react-app react-props-state-demo
 B.
 >npx create-react-app react-props-state-demo
 
+Node js installation folder:
+C:\Program Files\nodejs
+
+any additional node packages that you install
+C:\Users\<user-name>\AppData\Roaming\npm
