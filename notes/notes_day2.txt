@@ -1,5 +1,3 @@
-webpack, browserify
-
 convert ES6 code back to ES5 or much older version
 convert ES6 module styles to AMD
 
@@ -21,3 +19,6 @@ npm i @babel/plugin-transform-modules-amd --save-dev
 
 npm i lite-server --save-dev
 npm i concurrently --save-dev
+
+React Core packages:
+npm i react react-dom --save
