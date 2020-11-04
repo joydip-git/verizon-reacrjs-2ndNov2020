@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import './Person.css'
 
@@ -19,4 +19,6 @@ Person.propTypes = {
     personData: PropTypes.object.isRequired,
     selectHandler: PropTypes.func.isRequired
 }
-export default Person;
+//HOC 
+
+export default memo(Person);

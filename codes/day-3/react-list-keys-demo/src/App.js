@@ -11,12 +11,13 @@ class App extends Component {
   constructor() {
     super();
     console.log('[App] created')
+    console.log(this.props)
   }
 
   state = {
     people: [],
     selectedPersonId: 0,
-    showOrHide: true
+    showOrHide: false
   }
 
   selectPersonHandler = (personId) => {
@@ -50,6 +51,19 @@ class App extends Component {
     })
   }
 
+  static getDerivedStateFromProps(newProps, currentState) {
+    console.log('[App] getDerivedStateFromProps')
+    //console.log(this.props)
+    console.log(newProps)
+    // return {
+    //   showOrHide: newProps.show
+    // };
+    return null;
+  }
+  getSnapshotBeforeUpdate(oldProps, oldState) {
+    console.log('[App] getSnapshotBeforeUpdate')
+    return null;
+  }
   componentDidMount() {
     let people = getPeople()
     if (people !== null && people.length > 0) {

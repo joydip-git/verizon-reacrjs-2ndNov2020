@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { getPeople } from './data/peopleData'
 
@@ -6,25 +6,22 @@ import { getPeople } from './data/peopleData'
  * this.props = {personId:0, updateHandler:fn}
  */
 
-class PersonUpdate extends Component {
+class PersonUpdate extends PureComponent {
 
     constructor() {
         super()
         console.log('[PU] created')
+        console.log(this.props)
     }
     state = {
-        person: null
+        person: null,
+        x_pos: 50,
+        y_pos: 50
     }
     static propTypes = {
         personId: PropTypes.number.isRequired,
         updateHandler: PropTypes.func.isRequired
     }
-
-    componentDidMount() {
-        console.log('[PU] mounted...')
-        this.getData();
-    }
-
     getData = () => {
         let foundPerson = null;
         if (this.props.personId > 0) {
@@ -36,17 +33,24 @@ class PersonUpdate extends Component {
             })
         }
     }
-    componentWillUnmount() {
-        console.log('[PU] unmounted...')
-    }
-
-    componentDidUpdate(oldProps, oldState) {
-        console.log('[PU] updated')
-        // console.log(oldProps)
+    static getDerivedStateFromProps(newProps, newState) {
+        console.log('[PU] getDerivedStateFromProps')
         // console.log(this.props)
-        if (oldProps.personId !== this.props.personId)
-            this.getData();
+        console.log(newProps)
+        return null;
     }
+    /*
+    shouldComponentUpdate(newProps, newState) {
+        console.log('[PU] should component update')
+        console.log(newProps)
+        console.log(this.props)
+        if (this.state.person !== null && (this.state.person.id === this.props.personId && this.props.personId === newProps.personId)) {
+            return false;
+        }
+        else
+            return true;
+    }
+    */
     render() {
         console.log('[PU] rendered')
         let design = null;
@@ -65,8 +69,27 @@ class PersonUpdate extends Component {
             design = <span>Person with id:{this.props.personId} not found...</span>
         }
         return design;
-
         //return <span>Person Id:&nbsp;{this.props.personId}</span>
+    }
+    getSnapshotBeforeUpdate(oldProps, currentState) {
+        console.log('[PU] getSnapshotBeforeUpdate')
+        return 'hello...'
+    }
+    
+    componentDidUpdate(oldProps, oldState, snapshot) {
+        console.log('[PU] updated')
+        console.log(snapshot)
+        console.log(oldProps)
+        console.log(this.props)
+        if (oldProps.personId !== this.props.personId)
+            this.getData();
+    }
+    componentDidMount() {
+        console.log('[PU] mounted...')
+        this.getData();
+    }
+    componentWillUnmount() {
+        console.log('[PU] unmounted...')
     }
 }
 // PersonUpdate.propTypes = {

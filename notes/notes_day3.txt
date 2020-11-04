@@ -6,7 +6,8 @@ Lifecycle of class component:
 	NO setState() call should be made here
 	NO SIDE-EFFECT CAUSING CODE HERE
 	
-	b.
+	b. getDerivedStateFromProps(newProps, newState) (static): gets executed everytime including the first time. it should eother return null or return new state object.[rarest of rare]
+	NO SIDE-EFFECT CAUSING CODE HERE
 	
 	c. render: 
 	gets executed first time and subsequently on every state update
@@ -20,11 +21,34 @@ Lifecycle of class component:
 	Note: if you set state here then Render will be invoked ONE MORE TIME as part of creation stage
 
 2. update stage:
-	a. 
-	b. 
+	a. getDerivedStateFromProps(newProps, newState)
+
+	b. shouldComponentUpdate(newProps,newState):[rare]
+	this function gets executed everytime after the first time upon re-rendering of the parent component. should return true/false which wil decide whether any further events shoudl be fired or not.
+        it receives the new props object directly and the component's props will updated after this function execution is over considering the component has received new property values
+	NO SIDE-EFFECT CAUSING CODE HERE
+
 	c. render
-	d. 
-	e. componentDidUpdate:
-	this function gets executed everytime after the first time upon re-rendering of the paremt component
+
+	d. getSnapshotBeforeUpdate(oldProps, oldState):[rare]
+	this function gets executed everytime after the first time upon re-rendering of the parent component. should return value (known as snapshot) or null. the return value is passed to componentDidUpdate event method.
+	NO SIDE-EFFECT CAUSING CODE HERE
+
+	e. componentDidUpdate(oldProps,oldState,snpashot):
+	this function gets executed everytime after the first time upon re-rendering of the parent component
 	Prefect place to write SIDE-EFFECT CAUSING CODE
 	Note: if you set state here then Render will be invoked again
+
+
+primitive types: number, boolean,....
+newProps.personId === this.props.personId
+newProps.person === this.props.person
+
+3. desctruction/unmounting stage:
+	a. componentWillUnmount:
+	NO SIDE-EFFECT CAUSING CODE HERE
+	relase any resource here, such as subscription
+
+4. error stage:
+	a. static getDerivedStateFromError(error)
+	b. componentDidCatch(error, info)
