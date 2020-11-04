@@ -52,3 +52,15 @@ newProps.person === this.props.person
 4. error stage:
 	a. static getDerivedStateFromError(error)
 	b. componentDidCatch(error, info)
+
+class vs functional
+do you need to maintain state?
+do you need to avail lifecycle events and its methods?
+
+16.8 version of React:
+Hooks: APIs
+state hook
+effect hook
+lifecycle
+
+

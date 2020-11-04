@@ -1,11 +1,11 @@
-import React, { Component, PureComponent } from 'react'
+import React, { Component, memo, PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { getPeople } from './data/peopleData'
 
 /**
  * this.props = {personId:0, updateHandler:fn}
  */
-
+/*
 class PersonUpdate extends PureComponent {
 
     constructor() {
@@ -39,18 +39,18 @@ class PersonUpdate extends PureComponent {
         console.log(newProps)
         return null;
     }
-    /*
-    shouldComponentUpdate(newProps, newState) {
-        console.log('[PU] should component update')
-        console.log(newProps)
-        console.log(this.props)
-        if (this.state.person !== null && (this.state.person.id === this.props.personId && this.props.personId === newProps.personId)) {
-            return false;
-        }
-        else
-            return true;
-    }
-    */
+  
+    // shouldComponentUpdate(newProps, newState) {
+    //     console.log('[PU] should component update')
+    //     console.log(newProps)
+    //     console.log(this.props)
+    //     if (this.state.person !== null && (this.state.person.id === this.props.personId && this.props.personId === newProps.personId)) {
+    //         return false;
+    //     }
+    //     else
+    //         return true;
+    // }
+   
     render() {
         console.log('[PU] rendered')
         let design = null;
@@ -75,7 +75,7 @@ class PersonUpdate extends PureComponent {
         console.log('[PU] getSnapshotBeforeUpdate')
         return 'hello...'
     }
-    
+
     componentDidUpdate(oldProps, oldState, snapshot) {
         console.log('[PU] updated')
         console.log(snapshot)
@@ -96,4 +96,33 @@ class PersonUpdate extends PureComponent {
 //     personId: PropTypes.number.isRequired,
 //     updateHandler: PropTypes.func.isRequired
 // }
-export default PersonUpdate;
+*/
+const PersonUpdate = (props) => {
+    console.log('[PU] rendered')
+    let { personId, updateHandler } = props;
+
+    let person = null;
+    if (personId > 0) {
+        person = getPeople().find((p) => p.id === personId)
+    }
+    let design = null;
+    if (person !== null) {
+        design = (
+            <div>
+                Name:&nbsp;
+                <input type='text' value={person.name} onChange={(event) => updateHandler(person.id, "name", event.target.value)} />
+                <br />
+            Age:&nbsp;
+                <input type='text' value={person.age} onChange={(event) => updateHandler(person.id, "age", parseInt(event.target.value))} />
+            </div>
+        )
+    } else {
+        design = <span>Person with id:{personId} not found...</span>
+    }
+    return design;
+}
+PersonUpdate.propTypes = {
+    personId: PropTypes.number.isRequired,
+    updateHandler: PropTypes.func.isRequired
+}
+export default memo(PersonUpdate);

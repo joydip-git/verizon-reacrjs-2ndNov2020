@@ -17,7 +17,7 @@ class App extends Component {
   state = {
     people: [],
     selectedPersonId: 0,
-    showOrHide: false
+    showOrHide: true
   }
 
   selectPersonHandler = (personId) => {
