@@ -7,6 +7,7 @@ const Person = (props) => {
         backgroundColor: 'lime',
         margin: '5px'
     }
+    console.log('[Person] rendered')
     return (
         <span style={spanStyle} onClick={() => props.selectHandler(props.personData.id)}>
             Name:&nbsp;

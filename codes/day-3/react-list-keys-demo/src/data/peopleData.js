@@ -1,4 +1,4 @@
-export let people = [
+let people = [
     {
         name: 'anil',
         id: 1,
@@ -18,4 +18,8 @@ export let people = [
 
 export const updatePeople = (newPeople) => {
     people = newPeople;
+}
+
+export const getPeople = () => {
+    return people;
 }

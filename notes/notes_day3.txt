@@ -1,0 +1,21 @@
+Lifecycle of class component:
+1. creation:
+	a. constructor: 
+	gets executed only one time, that is during creation of component instance
+	ONLY state and other property initialization or binding methods to the current context should be done here
+	NO setState() call should be made here
+	NO SIDE-EFFECT CAUSING CODE HERE
+	
+	b.
+	
+	c. render: 
+	gets executed first time and subsequently on every state update
+	Job is to produce VDOM related react elements
+	NO setState() call should be made here DIRECTLY
+	NO SIDE-EFFECT CAUSING CODE HERE
+
+	d. componentDidMount:
+	gets executed first time and ONLY one time during the lifecycle of component
+	Prefecr place to write SIDE-EFFECT CAUSING CODE
+	Note: if you set state here then Render will be invoked ONE MORE TIME as part of creation stage
+

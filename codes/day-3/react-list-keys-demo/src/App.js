@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { people, updatePeople } from './data/peopleData';
+import { getPeople, updatePeople } from './data/peopleData';
 import Person from './Person';
 import PersonUpdate from './PersonUpdate';
 
@@ -8,9 +8,15 @@ import PersonUpdate from './PersonUpdate';
 // }
 // [1, 2, 3, 4].map(transform)
 class App extends Component {
+  constructor() {
+    super();
+    console.log('[App] created')
+  }
+
   state = {
-    people: people,
-    selectedPersonId: 0
+    people: [],
+    selectedPersonId: 0,
+    showOrHide: true
   }
 
   selectPersonHandler = (personId) => {
@@ -30,13 +36,35 @@ class App extends Component {
     copyOfPeople[foundIndex] = copyOfFound
 
     updatePeople(copyOfPeople)
-    console.log(people)
+    //console.log(people)
     this.setState({
       people: copyOfPeople
     })
   }
 
+  updateShowOrHideHandler = () => {
+    this.setState((currentState) => {
+      return {
+        showOrHide: !currentState.showOrHide
+      }
+    })
+  }
+
+  componentDidMount() {
+    let people = getPeople()
+    if (people !== null && people.length > 0) {
+      this.setState({
+        people: people
+      })
+    }
+    console.log('[App] mounted')
+  }
+
+  componentWillUnmount() {
+    console.log('[App] unmounted')
+  }
   render() {
+    console.log('[App] rendered')
     return (
       <div>
         List of People:
@@ -44,14 +72,19 @@ class App extends Component {
         <br />
         <div style={{ backgroundColor: "azure", borderRadius: "3px" }}>
           {
-            this.state.people.map((p) => {
-              return <Person personData={p} selectHandler={this.selectPersonHandler} key={p.id} />
-            })
+            (this.state.people !== null && this.state.people.length > 0) ?
+              this.state.people.map((p) => {
+                return <Person personData={p} selectHandler={this.selectPersonHandler} key={p.id} />
+              }) :
+              (<span>No Records found</span>)
           }
         </div>
         <br />
+        <button onClick={this.updateShowOrHideHandler}>{this.state.showOrHide ? 'Hide' : 'Show'}</button>
         <br />
-        <PersonUpdate personId={this.state.selectedPersonId} updateHandler={this.updatePersonHandler} />
+        {
+          this.state.showOrHide && (<PersonUpdate personId={this.state.selectedPersonId} updateHandler={this.updatePersonHandler} />)
+        }
       </div>
     )
   }
