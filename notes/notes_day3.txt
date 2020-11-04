@@ -16,6 +16,15 @@ Lifecycle of class component:
 
 	d. componentDidMount:
 	gets executed first time and ONLY one time during the lifecycle of component
-	Prefecr place to write SIDE-EFFECT CAUSING CODE
+	Prefect place to write SIDE-EFFECT CAUSING CODE
 	Note: if you set state here then Render will be invoked ONE MORE TIME as part of creation stage
 
+2. update stage:
+	a. 
+	b. 
+	c. render
+	d. 
+	e. componentDidUpdate:
+	this function gets executed everytime after the first time upon re-rendering of the paremt component
+	Prefect place to write SIDE-EFFECT CAUSING CODE
+	Note: if you set state here then Render will be invoked again

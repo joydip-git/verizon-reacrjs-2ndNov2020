@@ -22,6 +22,10 @@ class PersonUpdate extends Component {
 
     componentDidMount() {
         console.log('[PU] mounted...')
+        this.getData();
+    }
+
+    getData = () => {
         let foundPerson = null;
         if (this.props.personId > 0) {
             foundPerson = getPeople().find((p) => p.id === this.props.personId)
@@ -32,9 +36,16 @@ class PersonUpdate extends Component {
             })
         }
     }
-
     componentWillUnmount() {
         console.log('[PU] unmounted...')
+    }
+
+    componentDidUpdate(oldProps, oldState) {
+        console.log('[PU] updated')
+        // console.log(oldProps)
+        // console.log(this.props)
+        if (oldProps.personId !== this.props.personId)
+            this.getData();
     }
     render() {
         console.log('[PU] rendered')
