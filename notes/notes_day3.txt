@@ -63,4 +63,19 @@ state hook
 effect hook
 lifecycle
 
+HOC and error handling using HOC
+Render Prop
+ref
+hooks
+
+make HTTP request
+Routing
+Redux
+
+Flow package
+TypeScript
+
+Deployment: dockerize
+
+
 
