@@ -6,3 +6,17 @@ HOC
 Render Prop
 Ref
 Forms
+
+componentDidUpdate()---> fetch data
+
+componentDidUpdate()---> make network req using WS
+
+routing:
+useHistory, useLocation, useParams
+
+Redux:
+useSelector, useDispatch
+
+useRef()
+useMemo()
+

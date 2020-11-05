@@ -3,7 +3,7 @@ import Count from './Count';
 import Name from './Name';
 
 const Parent = () => {
-    const [state, setState] = useState({ name: '', count: 0 });
+    const [state, setState] = useState({ name: '', count: 0, show: true });
 
     const changeNameHandler = (newName) => {
         setState(ps => {
@@ -22,12 +22,23 @@ const Parent = () => {
         })
     }
 
+    const changeShowHandler = () => {
+        setState(ps => {
+            return {
+                ...ps,
+                show: !ps.show
+            }
+        })
+    }
+
     console.log('[Parent] rendered...')
     return (
         <div>
+            <button onClick={changeShowHandler}>{state.show ? 'Hide' : 'Show'}</button>
+            <br /><br />
             <Name name={state.name} handler={changeNameHandler} />
             <br />
-            <Count count={state.count} handler={changeCountHandler} />
+            {state.show && <Count count={state.count} handler={changeCountHandler} />}
         </div>
     )
 }
