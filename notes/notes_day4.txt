@@ -20,3 +20,10 @@ useSelector, useDispatch
 useRef()
 useMemo()
 
+React
+https://www.youtube.com/playlist?list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3
+Redux
+https://www.youtube.com/playlist?list=PLC3y8-rFHvwheJHvseC3I0HuYI2f46oAK
+
+https://www.udemy.com/course/react-the-complete-guide-incl-redux/
+
