@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import ClickCounter from './ClickCounter';
+import Counter from './Counter';
+import HoverCounter from './HoverCounter';
 
 function App() {
+  // const show = function () {
+  //   return 'joydip mondal';
+  // }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Counter render={
+        (stateCount, countHandler) => {
+          return <ClickCounter countValue={stateCount} handlerFn={countHandler} x={10} />
+        }
+      } />
+      <br />
+      <br />
+      <Counter render={(stateCount, countHandler) => {
+        return <HoverCounter countData={stateCount} handlerFunction={countHandler} y={20} />
+      }} />
     </div>
   );
 }
