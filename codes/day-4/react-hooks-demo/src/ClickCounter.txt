@@ -1,0 +1,41 @@
+import React, { useState } from 'react'
+
+function ClickCounter() {
+
+    //const [countState, setCountState] = useState({ count: 0, value: 0 });
+    const [countState, setCountState] = useState(0);
+    const [showState, setShowState] = useState(true);
+    // useState('');
+    // useState([1, 2, 3, 4]);
+
+    const increaseCountHandler = () => {
+        // setCountState({
+        //     count: 10
+        // })
+        // setCountState((ps) => {
+        //     // let copy = {...ps};
+        //     // copy.count=ps.count+1;
+        //     // return copy;
+        //     return {
+        //         ...ps,
+        //         count: ps.count + 1
+        //     }
+        // })
+        setCountState(ps => {
+            return ps + 1;
+        })
+        setShowState(ps => !ps)
+    }
+    return (
+        <div>
+            { showState && <span>Count Value:&nbsp;{countState}</span>}
+            <br />
+            {/* Value:&nbsp;{countState.value} */}
+
+            <br />
+            <button onClick={increaseCountHandler}>Increase</button>
+        </div>
+    )
+}
+
+export default ClickCounter
