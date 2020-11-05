@@ -11,7 +11,7 @@ const withMemo = (WrappedComponent) => {
             }
             return false;
         }
-        render() {
+        render() {            
             return <WrappedComponent />
         }
     }
