@@ -1,1 +1,36 @@
-https://forms.gle/8hUm29a5G9LBfYSu8
+React Router:
+
+a. BrowserRouter
+b. HashRouter
+c. MemoryRouter
+
+d. Route
+e. Link, NavLink
+f. Redirect
+
+g. Switch
+
+http://abcd.com/#/index.html
+HashRouter
+
+history API: pushState API->history.push('')
+forceRehresh API
+
+React JS--> Web app
+React Native --> MemoryRouter
+
+useReducer-->useState-->state, setState
+
+design: material UI
+static type checking: flow package
+
+server side rendering: next.js
+redux-async: redux saga
+
+optimization, profiling
+
+React fiber
+
+
+
+

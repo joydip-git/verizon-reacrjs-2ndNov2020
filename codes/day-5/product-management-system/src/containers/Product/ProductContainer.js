@@ -21,11 +21,8 @@ class ProductContainer extends Component {
             design = <span>No products found</span>
         } else {
             design = (
-                <div className='panel panel-primary panelStyle'>
-                    <div className='panel panel-heading'>
-                        <h4>{products.length} record(s) found...</h4>
-                    </div>
-                    <div className='panel panel-body'>
+                <div className='container'>
+                    <div className='panel panel-primary'>
                         <ProductTable productList={products} />
                     </div>
                 </div>

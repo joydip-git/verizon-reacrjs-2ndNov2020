@@ -1,11 +1,17 @@
-import ProductContainer from '../Product/ProductContainer';
 import './App.css';
+import { BrowserRouter as Router } from 'react-router-dom'
+import DashBoard from '../../components/Common/DashBoard/DashBoard';
+import ProductRoutes from '../../routes/ProductRoutes';
+
 
 function App() {
   return (
-    <div className="App">
-      <ProductContainer />
-    </div>
+    <Router>
+      <div className="App">
+        <DashBoard />
+        <ProductRoutes />
+      </div>
+    </Router>
   );
 }
 
