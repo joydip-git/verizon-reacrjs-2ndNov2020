@@ -1,50 +1,54 @@
 import React, { Component } from 'react'
-import { getProducts } from '../../services/productService'
-import { product } from '../../models/product'
+import { connect } from 'react-redux'
+import ProductTable from '../../components/Product/ProductTable/ProductTable'
+import { fetchProductsAsyncCallbackCreator } from '../../redux/async-callbacks/productAsyncCallbacks'
+import './ProductContainer.css'
 
-export default class ProductContainer extends Component {
-
-    state = {
-        products: [],
-        error: ''
-    }
+class ProductContainer extends Component {
 
     componentDidMount() {
-        getProducts()
-            .then(resp => {
-                let mappedData = resp.data.map(p => {
-                    let prod = new product();
-                    for (let propName in p) {
-                        prod[propName] = p[propName];
-                    }
-                    return prod;
-                })
-                // console.log(resp.data)
-                // console.log(mappedData)
-                this.setState({
-                    products: mappedData,
-                    error: ''
-                })
-            })
-            .catch(e => {
-                this.setState({
-                    products: [],
-                    error: e.message
-                })
-            });
+        this.props.getProducts()
     }
 
     render() {
-        return (
-            <div>
-                {
-                    this.state.products.length > 0 ? (
-                        this.state.products.map(p => {
-                            return <span>{p.productName}</span>
-                        })
-                    ) : 'No products found'
-                }
-            </div>
-        )
+        const { loading, errorMessage, products } = this.props;
+        let design = null;
+        if (loading) {
+            design = <span>Loading...</span>
+        } else if (errorMessage !== '') {
+            design = <span>{errorMessage}</span>
+        } else if (products.length === 0) {
+            design = <span>No products found</span>
+        } else {
+            design = (
+                <div className='panel panel-primary panelStyle'>
+                    <div className='panel panel-heading'>
+                        <h4>{products.length} record(s) found...</h4>
+                    </div>
+                    <div className='panel panel-body'>
+                        <ProductTable productList={products} />
+                    </div>
+                </div>
+            );
+        }
+
+        return design;
     }
 }
+
+const mapStateToProps = (combinedState) => {
+    return {
+        products: combinedState.getProductsState.products,
+        errorMessage: combinedState.getProductsState.error,
+        loading: combinedState.getProductsState.loading
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getProducts: () => dispatch(fetchProductsAsyncCallbackCreator())
+    }
+}
+
+let connector = connect(mapStateToProps, mapDispatchToProps);
+export default connector(ProductContainer)
+
