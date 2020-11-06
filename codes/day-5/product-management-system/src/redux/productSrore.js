@@ -183,12 +183,14 @@ const fetchProductByIdAsyncCallbackCreator = (productId) => {
 }
 
 
-const loggerMiddleware = createLogger();
-const thunkDefaultMiddleware = thunk.default;
+
 const rootReducer = combineReducers({
     getProductsState: getProductsReducer,
     getProductByIdState: getProductByIdReducer
 });
+
+const loggerMiddleware = createLogger();
+const thunkDefaultMiddleware = thunk.default;
 const productStore = createStore(rootReducer, applyMiddleware(loggerMiddleware, thunkDefaultMiddleware))
 //fetchProductsAsync(productStore.dispatch);
 
