@@ -6,7 +6,6 @@ export const getProducts = () => {
     return Axios.get(apiUrl);
 }
 
-
 export const getProductById = (productId) => {
     return Axios.get(`${apiUrl}/${productId}`);
 }
